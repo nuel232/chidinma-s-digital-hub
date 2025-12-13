@@ -17,8 +17,8 @@ const ExperienceSection = () => {
     {
       role: 'Digital Marketing Associate',
       company: 'Virces Kiddies',
-      period: '2023 – Present',
-      current: true,
+      period: '2023 – May 2025',
+      current: false,
     },
   ];
 
