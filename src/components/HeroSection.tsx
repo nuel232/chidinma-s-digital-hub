@@ -1,6 +1,6 @@
 import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import chidinmaPortrait from '@/assets/chidinma-portrait.jpg';
+import chidinmaPortrait from '@/assets/picture.jpeg';
 
 const HeroSection = () => {
   return (
