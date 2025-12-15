@@ -1,47 +1,58 @@
-import { ExternalLink, Instagram, FileText, BarChart, MessageSquare } from 'lucide-react';
+import { Instagram, Palette, BarChart, FileText, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BentoGrid, BentoCard } from '@/components/ui/bento-grid';
 
 const PortfolioSection = () => {
   const portfolioItems = [
     {
-      title: 'Social Media Captions',
+      name: 'Social Media Captions',
       category: 'Content Creation',
-      description: 'Engaging captions that drive interaction and build community.',
-      icon: Instagram,
-      color: 'bg-sage-light',
-      iconColor: 'text-primary',
+      description: 'Engaging captions that drive interaction and build community across platforms like Instagram, LinkedIn, and Facebook.',
+      Icon: Instagram,
+      href: '#contact',
+      cta: 'View Samples',
+      className: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3',
+      background: <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />,
     },
     {
-      title: 'Canva Graphics',
+      name: 'Canva Graphics',
       category: 'Design',
-      description: 'Eye-catching visuals for social media posts, stories, and more.',
-      icon: ExternalLink,
-      color: 'bg-gold-light',
-      iconColor: 'text-accent',
+      description: 'Eye-catching visuals for social media posts, stories, and marketing materials.',
+      Icon: Palette,
+      href: '#contact',
+      cta: 'See Designs',
+      className: 'lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2',
+      background: <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent" />,
     },
     {
-      title: 'Campaign Support',
+      name: 'Campaign Support',
       category: 'Marketing',
-      description: 'End-to-end campaign coordination and execution.',
-      icon: BarChart,
-      color: 'bg-sage-light',
-      iconColor: 'text-primary',
+      description: 'End-to-end campaign coordination, tracking, and execution for maximum impact.',
+      Icon: BarChart,
+      href: '#contact',
+      cta: 'Learn More',
+      className: 'lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3',
+      background: <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />,
     },
     {
-      title: 'Reports & Insights',
+      name: 'Reports & Insights',
       category: 'Analytics',
-      description: 'Clear, actionable reports that inform strategy.',
-      icon: FileText,
-      color: 'bg-gold-light',
-      iconColor: 'text-accent',
+      description: 'Clear, actionable reports that inform strategy and demonstrate ROI for stakeholders.',
+      Icon: FileText,
+      href: '#contact',
+      cta: 'View Examples',
+      className: 'lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2',
+      background: <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent" />,
     },
     {
-      title: 'VA Deliverables',
+      name: 'VA Deliverables',
       category: 'Virtual Assistance',
-      description: 'Itineraries, meeting minutes, and outreach messages.',
-      icon: MessageSquare,
-      color: 'bg-sage-light',
-      iconColor: 'text-primary',
+      description: 'Professional itineraries, meeting minutes, research summaries, and outreach messages.',
+      Icon: MessageSquare,
+      href: '#contact',
+      cta: 'Request Samples',
+      className: 'lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3',
+      background: <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />,
     },
   ];
 
@@ -58,39 +69,11 @@ const PortfolioSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {portfolioItems.map((item, index) => (
-            <div
-              key={item.title}
-              className="group bg-card/90 backdrop-blur-sm rounded-2xl shadow-sm border border-border overflow-hidden hover-lift cursor-pointer"
-            >
-              {/* Preview Area */}
-              <div className={`${item.color} h-48 flex items-center justify-center relative overflow-hidden`}>
-                <item.icon className={`w-16 h-16 ${item.iconColor} opacity-30 group-hover:opacity-50 transition-opacity`} />
-                
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-primary-foreground font-medium flex items-center gap-2">
-                    View Sample <ExternalLink size={16} />
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                  {item.category}
-                </span>
-                <h3 className="font-display text-xl font-semibold text-foreground mt-2 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {item.description}
-                </p>
-              </div>
-            </div>
+        <BentoGrid className="lg:grid-rows-2 lg:auto-rows-[minmax(200px,1fr)]">
+          {portfolioItems.map((item) => (
+            <BentoCard key={item.name} {...item} />
           ))}
-        </div>
+        </BentoGrid>
 
         <div className="text-center mt-12">
           <Button variant="heroOutline" size="lg" asChild>
